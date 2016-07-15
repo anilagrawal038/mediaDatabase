@@ -1,0 +1,81 @@
+<html t:type="mediaLayout" title="MediaDB"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+<div>
+	<h3>Upload Media File CSV</h3>
+</div>
+<div>${message}</div>
+<table border="1" style="width: 100%">
+	<tr>
+		<th colspan="10"><center>
+				<b>CSV header format</b>
+			</center></th>
+	</tr>
+	<tr>
+		<td><b>Header Fields</b></td>
+		<td>name</td>
+		<td>location</td>
+		<td>format</td>
+		<td>codec</td>
+		<td>bitrate</td>
+		<td>resolution</td>
+		<td>framerate</td>
+		<td>size</td>
+		<td>duration</td>
+	</tr>
+	<tr>
+		<td><b>Fields Data Type</b></td>
+		<td>String</td>
+		<td>String</td>
+		<td>String</td>
+		<td>String</td>
+		<td>Long</td>
+		<td>resolution</td>
+		<td>Integer</td>
+		<td>Long</td>
+		<td>Integer</td>
+	</tr>
+
+	<tr>
+		<td><b>Sample Data</b></td>
+		<td>Sample Video</td>
+		<td>c:\videos\sample.mp4</td>
+		<td>MP4</td>
+		<td>H264</td>
+		<td>343223</td>
+		<td>1080x560</td>
+		<td>25</td>
+		<td>23434333</td>
+		<td>23233</td>
+	</tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<t:form>
+
+	<t:errors />
+	<center>
+		<div>Please select CSV for Media Files</div>
+	</center>
+	<br />
+	<br />
+	<br />
+	<center>
+		<input t:type="upload" t:id="file" t:value="file" validate="required" />
+	</center>
+	<br />
+	<br />
+	<br />
+	<center>
+		<input type="submit" value="Upload" />
+	</center>
+
+</t:form>
+</html>

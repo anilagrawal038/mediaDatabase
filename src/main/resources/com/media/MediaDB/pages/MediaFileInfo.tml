@@ -1,0 +1,28 @@
+<html t:type="mediaLayout" title="MediaDB"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+<div>
+	<h3>Media File Information</h3>
+</div>
+<div>${message}</div>
+<div class="row" style="margin-left: 2cm; width: 700px">
+	<div class="span4 offset3">
+		<t:form t:id="mediaFileInfoForm">
+			<t:textfield t:id="mediaFileName" value="${mediaFile.name}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileLocation" value="${mediaFile.location}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileSize" value="${mediaFile.size}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileDuration" value="${mediaFile.duration}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileFrameRate" value="${mediaFile.frameRate}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileResolution" value="${mediaFile.resolution}"
+				t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileBitrate" value="${mediaFile.bitrate}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileFormat" value="${mediaFile.format}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileCodec" value="${mediaFile.codecs}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileDateCreated" value="${mediaFile.dateCreated}" t:mixins="formgroup" disabled="true" />
+			<t:textfield t:id="mediaFileDateModified" value="${mediaFile.dateModified}" t:mixins="formgroup" disabled="true" />
+			<t:hidden t:id="id" value="mediaFile.id" />
+		</t:form>
+	</div>
+</div>
+</html>

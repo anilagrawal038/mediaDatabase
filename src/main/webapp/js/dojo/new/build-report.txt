@@ -1,0 +1,10 @@
+Build started: Thu Jul 14 2016 17:45:07 GMT+0530 (IST)
+Build application version: 1.11.2 (4694bfe)
+Messages:
+Layer Contents:
+
+
+Process finished normally
+	errors: 0
+	warnings: 0
+	build time: 0.356 seconds

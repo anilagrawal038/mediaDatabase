@@ -1,0 +1,37 @@
+<html t:type="mediaLayout" title="MediaDB"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+<div>
+	<h1>Update Media File</h1>
+</div>
+<div>${message}</div>
+<div class="row" style="margin-left: 2cm; width: 700px">
+	<div class="span4 offset3">
+		<t:form t:id="updateMediaFileForm">
+			<h2>Please fill media file details</h2>
+			<t:textfield t:id="name" value="mediaFile.name" t:mixins="formgroup" />
+			<t:textfield t:id="location" value="mediaFile.location"
+				t:mixins="formgroup" />
+			<t:textfield t:id="size" value="mediaFile.size" t:mixins="formgroup" />
+			<t:textfield t:id="duration" value="mediaFile.duration"
+				t:mixins="formgroup" />
+			<t:textfield t:id="frameRate" value="mediaFile.frameRate"
+				t:mixins="formgroup" />
+			<t:textfield t:id="resolution" value="mediaFile.resolution"
+				t:mixins="formgroup" />
+			<t:textfield t:id="bitrate" value="mediaFile.bitrate"
+				t:mixins="formgroup" />
+			<t:label for="mediaFormats" />
+			<t:select t:id="mediaFormats" value="mediaFile.format"
+				validate="required" />
+			<t:label for="mediaCodecs" />
+			<t:select t:id="mediaCodecs" value="mediaFile.codecs"
+				validate="required" />
+			<t:hidden t:id="id" value="mediaFile.id" />
+			<t:submit class="btn btn-large btn-primary" value="Submit"
+				style="margin-top: 20px;margin-left: 175px; width:350px" />
+		</t:form>
+	</div>
+</div>
+</html>

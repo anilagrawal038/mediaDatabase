@@ -1,0 +1,25 @@
+<html t:type="mediaLayout" title="MediaDB"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+<div>
+	<h3>Search Media File</h3>
+</div>
+<div>${message}</div>
+<div class="row" style="margin-left: 2cm; width: 700px">
+	<div class="span4 offset3">
+		<t:form t:id="searchMediaFilterForm">
+			<h2>Apply filter</h2>
+			<t:textfield t:id="name" value="name" t:mixins="formgroup" />
+			<t:textfield t:id="maximumSize" value="maxSize" t:mixins="formgroup" />
+			<t:textfield t:id="minimumSize" value="minSize" t:mixins="formgroup" />
+			<t:datefield t:id="createdAfter" value="createdAfterDate" t:mixins="formgroup"/>
+			<t:datefield t:id="createdBefore" value="createdBeforeDate" t:mixins="formgroup"/>
+			<t:label for="mediaFormats" />
+			<t:select t:id="mediaFormats" value="mediaFormats" />
+			<t:submit class="btn btn-large btn-primary"
+				style="margin-top: 20px;margin-left: 175px; width:350px"></t:submit>
+
+		</t:form>
+	</div>
+</div>
+</html>

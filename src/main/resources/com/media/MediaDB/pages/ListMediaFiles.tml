@@ -1,0 +1,28 @@
+<html t:type="mediaLayout" title="MediaDB"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+<div>
+	<h3>List of Media Files</h3>
+</div>
+<div>${message}</div>
+<t:grid source="mediaFiles" row="mediaFile" add="update,delete">
+	<p:nameCell>
+		<t:pagelink page="mediaFileInfo" context="mediaFile.id">${mediaFile.name}</t:pagelink>
+	</p:nameCell>
+	<p:updateCell>
+		<t:pagelink page="updateMediaFile" context="mediaFile.id">Update File</t:pagelink>
+	</p:updateCell>
+	<p:deleteCell>
+		<t:pagelink page="deleteMediaFile" context="mediaFile.id">Delete File</t:pagelink>
+	</p:deleteCell>
+	<p:empty>
+		<p>
+			There are no media files to display; you can
+			<t:pagelink page="AddMediaFile">add some</t:pagelink>
+			.
+		</p>
+	</p:empty>
+
+</t:grid>
+</html>
