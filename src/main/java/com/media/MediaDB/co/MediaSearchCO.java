@@ -3,32 +3,26 @@ package com.media.MediaDB.co;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.media.MediaDB.constants.MediaFormat;
 
 public class MediaSearchCO {
 
-	@JsonIgnore
 	private MediaFormat mediaFormats;
 
-	@JsonIgnore
 	private String name;
 
-	@JsonIgnore
 	private long maxSize;
 
-	@JsonIgnore
 	private long minSize;
 
-	@JsonIgnore
 	private Date createdAfterDate;
 
-	@JsonIgnore
 	private Date createdBeforeDate;
 
-	@JsonIgnore
 	private int batchSize;
 
-	@JsonIgnore
 	private int pageCount;
 
 	public MediaFormat getMediaFormats() {
