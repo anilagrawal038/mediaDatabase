@@ -19,25 +19,25 @@
 			<br /> <br />
 			<div>
 				<label style="width: 24%">Media name : </label>
-				<input type="text" style="width: 24%" id="name" name="name" value="" />
+				<input type="text" style="width: 24%" id="name" name="name" value="" class="formField" />
 				<label style="width: 24%; margin-left: 4%">Media maximum size : </label>
-				<input type="text" style="width: 24%" id="maximumSize" name="maxSize" value="" />
+				<input type="text" style="width: 24%" id="maximumSize" name="maxSize" value="" class="formField" />
 			</div>
 			<div>
 				<label style="width: 24%">Media minimum size : </label>
-				<input type="text" style="width: 24%" id="minimumSize" name="minSize" value="" />
+				<input type="text" style="width: 24%" id="minimumSize" name="minSize" value="" class="formField" />
 				<label style="width: 24%; margin-left: 4%">Media created after : </label>
-				<input type="text" style="width: 24%" id="createdAfter" name="createdAfterDate" value="" />
+				<input type="text" style="width: 24%" id="createdAfter" name="createdAfterDate" value="" class="formField" />
 			</div>
 			<div>
 				<label style="width: 24%">Media created before : </label>
-				<input type="text" style="width: 24%" id="createdBefore" name="createdBeforeDate" value="" />
+				<input type="text" style="width: 24%" id="createdBefore" name="createdBeforeDate" value="" class="formField" />
 				<label style="width: 24%; margin-left: 4%">Media formats : </label>
-				<input type="text" style="width: 24%" id="mediaFormats" name="mediaFormats" value="" />
+				<input type="text" style="width: 24%" id="mediaFormats" name="mediaFormats" value="" class="formField" />
 			</div>
-			<input type="hidden"  id="pageCount" name="pageCount" value="0" />
-			<input type="hidden"  id="batchSize" name="batchSize" value="10" />
-			<input type="button" onclick="searchMedia()" style="margin-top: 20px; margin-left: 40%; width: 20%" value="Search" />
+			<input type="hidden" id="pageCount" name="pageCount" value="0" />
+			<input type="hidden" id="batchSize" name="batchSize" value="10" />
+			<input type="button" style="margin-top: 20px; margin-left: 40%; width: 20%" value="Search" class="formBtn" />
 		</form>
 		<br /> <br />
 

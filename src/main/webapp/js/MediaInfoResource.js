@@ -7,11 +7,26 @@ var media;
 var responseJson;
 
 function onReady() {
+
 	searchMedia();
 
 	onObj(domObj.byId("paginationDiv"), "a.paginationLink:click",
 			initializePagination);
+
+	onObj(domObj.byId("searchMediaFilterForm"),
+			".formField:change", initializeFormFields);
+
+
+	onObj(domObj.byId("searchMediaFilterForm"), ".formBtn:click",
+			function() {
+				domObj.byId('pageCount').value = 0;
+				searchMedia();
+			});
 };
+
+function initializeFormFields() {
+	domObj.byId('pageCount').value = 0;
+}
 
 function initializePagination(e) {
 	var pageIndex = domAttrObj.get(this, 'index');
