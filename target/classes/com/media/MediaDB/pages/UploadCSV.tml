@@ -2,7 +2,7 @@
 
 <script type="text/javascript" src="js/common.js" />
 <script type="text/javascript" src="js/MediaInfoResource.js" />
-<link rel="stylesheet" href="js/dijit/themes/claro/claro.css"></link>
+
 
 
 
@@ -12,39 +12,28 @@
 <div>
 	<h3>Search Media File</h3>
 </div>
-<div class="row" style="margin-left: 2cm; width: 90%">
+<div class="row" style="margin-left: 2cm; width: 700px">
 	<div class="span4 offset3">
-		<form id="searchMediaFilterForm" method="post" data-dojo-type="dijit/form/Form" action="#">
+		<form id="searchMediaFilterForm" method="post" action="#">
 			<h2>Apply filter</h2>
 			<br /> <br />
 			<div>
 				<label style="width: 24%">Media name : </label>
-				<input type="text" style="width: 24%" id="name" name="name" data-dojo-type="dijit/form/ValidationTextBox"
-					data-dojo-props="regExp: '((^.{2,5}$)|(^[.]*$))',
-        invalidMessage:'Name length must be greater than 2'" value="" class="formField"
-				/>
+				<input type="text" style="width: 24%" id="name" name="name" value="" class="formField" />
 				<label style="width: 24%; margin-left: 4%">Media maximum size : </label>
-				<input type="text" style="width: 24%" id="maximumSize" data-dojo-type="dijit/form/NumberTextBox" name="maxSize" value="" class="formField" />
+				<input type="text" style="width: 24%" id="maximumSize" name="maxSize" value="" class="formField" />
 			</div>
 			<div>
 				<label style="width: 24%">Media minimum size : </label>
-				<input type="text" style="width: 24%" id="minimumSize" data-dojo-type="dijit/form/NumberTextBox" name="minSize" value="" class="formField" />
+				<input type="text" style="width: 24%" id="minimumSize" name="minSize" value="" class="formField" />
 				<label style="width: 24%; margin-left: 4%">Media created after : </label>
-				<input style="width: 24%;" type="text" id="createdAfter" name="createdAfterDate" data-dojo-type="dijit/form/DateTextBox" class="formField" />
+				<input type="text" style="width: 24%" id="createdAfter" name="createdAfterDate" value="" class="formField" />
 			</div>
 			<div>
 				<label style="width: 24%">Media created before : </label>
-				<input type="text" style="width: 24%" id="createdBefore" name="createdBeforeDate" data-dojo-type="dijit/form/DateTextBox" value=""
-					class="formField"
-				/>
+				<input type="text" style="width: 24%" id="createdBefore" name="createdBeforeDate" value="" class="formField" />
 				<label style="width: 24%; margin-left: 4%">Media formats : </label>
-				<select type="text" style="width: 24%;" id="mediaFormats" name="mediaFormats" value="" class="formField">
-					<option value="">--Select--</option>
-					<option value="MP4">MP4</option>
-					<option value="AVI">AVI</option>
-					<option value="FLV">FLV</option>
-					<option value="MP3">MP3</option>
-				</select>
+				<input type="text" style="width: 24%" id="mediaFormats" name="mediaFormats" value="" class="formField" />
 			</div>
 			<input type="hidden" id="pageCount" name="pageCount" value="0" />
 			<input type="hidden" id="batchSize" name="batchSize" value="10" />

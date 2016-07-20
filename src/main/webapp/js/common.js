@@ -1,7 +1,7 @@
 /**
  * 
  */
-var domObj, dojoObj, domFormObj, queryObj, requestObj, xhrObj, readyObj, onObj, domAttrObj;
+var domObj, dojoObj, domFormObj, queryObj, requestObj, xhrObj, readyObj, onObj, domAttrObj, parserObj, validateObj, arrayUtilObj;
 setTimeout(function() {
 
 	var dojoConfig = {
@@ -13,14 +13,24 @@ setTimeout(function() {
 			name : 'dojo',
 			location : '../js/dojo'
 		// ,main : "dojo"
+		}, {
+			name : 'dijit',
+			location : '../js/dijit'
+		}, {
+			name : 'dojox',
+			location : '../js/dojox'
 		} ],
 
 	});
 
-	require([ 'dojo', 'dojo/dom', "dojo/dom-form", 'dojo/query',
+	require([ 'dojo/parser', 'dojo', 'dojo/dom', "dojo/dom-form", 'dojo/query',
 			'dojo/request', 'dojo/ready', "dojo/request/xhr", 'dojo/on',
-			'dojo/dom-attr', 'dojo/domReady!' ], function(dojo, dom, domForm,
-			query, request, ready, xhr, on, domAttr) {
+			'dojo/dom-attr', 'dojox/validate', 'dojo/_base/array', "dojo/date",
+			"dijit/form/DateTextBox", "dojox/validate/web",
+			"dojox/validate/us", "dojox/validate/check", "dijit/form/Form",
+			"dijit/form/NumberTextBox", 'dojo/domReady!' ], function(parser,
+			dojo, dom, domForm, query, request, ready, xhr, on, domAttr,
+			validate, array) {
 		dojoObj = dojo;
 		domObj = dom;
 		domFormObj = domForm;
@@ -30,6 +40,9 @@ setTimeout(function() {
 		readyObj = ready;
 		onObj = on;
 		domAttrObj = domAttr;
+		parserObj = parser;
+		validateObj = validate;
+		arrayUtilObj = array;
 		try {
 			onReady();
 		} catch (exception) {
@@ -38,3 +51,9 @@ setTimeout(function() {
 
 	});
 }, 1000);
+
+function testRegexString(regex, str) {
+	// var re = new RegExp("((^.{2,5}$)|(^[.]*$))");
+	var re = new RegExp(regex);
+	return re.test(str);
+}

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
 <head>
 <meta charset="utf-8" />
 <title>${title}</title>
 </head>
 
-<body>
+<body >
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
+		<div class="container" >
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">

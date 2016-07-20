@@ -8,21 +8,61 @@ var responseJson;
 
 function onReady() {
 
+	parserObj.parse();
+
 	searchMedia();
 
 	onObj(domObj.byId("paginationDiv"), "a.paginationLink:click",
 			initializePagination);
 
-	onObj(domObj.byId("searchMediaFilterForm"),
-			".formField:change", initializeFormFields);
+	onObj(domObj.byId("searchMediaFilterForm"), ".formField:change",
+			initializeFormFields);
 
+	onObj(domObj.byId("searchMediaFilterForm"), ".formBtn:click", function() {
+		domObj.byId('pageCount').value = 0;
+		searchMedia();
+	});
 
-	onObj(domObj.byId("searchMediaFilterForm"), ".formBtn:click",
-			function() {
-				domObj.byId('pageCount').value = 0;
-				searchMedia();
-			});
 };
+
+function validateFormFields() {
+	var validationProfile = {
+		trim : [ "name", "minSize", "maxSize" ],
+		required : [ "mediaFormats" ],
+		digit : [ 'maxSize', 'minSize' ],
+		constraints : {
+			name : [ validateObj.isText, {
+				minlength : 3,
+				maxlength : 10
+			} ]
+		}
+	};
+
+	var results = validateObj.check(document.getElementById(formId),
+			validationProfile);
+	if (results.isSuccessful()) {
+		alert('success validation');
+	} else {
+		alert('error validation');
+		var missingFields = results.getMissing();
+		var invalidFields = results.getInvalid();
+		var missingFieldNames = '', invalidFieldNames = '';
+
+		if (missingFields.length > 0) {
+			arrayUtilObj.forEach(missingFields, function(field) {
+				missingFieldNames += domAttrObj.get(field, 'name') + ", ";
+			});
+			alert('Missing fields => ' + missingFieldNames);
+		}
+
+		if (invalidFields.length > 0) {
+			arrayUtilObj.forEach(invalidFields, function(field) {
+				invalidFieldNames += domAttrObj.get(field, 'name') + ", ";
+			});
+			alert('Invalid fields => ' + invalidFieldNames);
+		}
+	}
+}
 
 function initializeFormFields() {
 	domObj.byId('pageCount').value = 0;
@@ -71,35 +111,37 @@ function getMedia() {
 }
 
 function searchMedia() {
+	// validateFormFields();
+	var state = dijit.byId(formId).validate();
+	if (state) {
+		var formJson = dojoObj.formToJson(formId);
+		formJson = removeBlankParametrsFromJson(formJson);
+		console.log("Form submitted with data : " + JSON.stringify(formJson));
 
-	var formJson = dojoObj.formToJson(formId);
-	formJson = removeBlankParametrsFromJson(formJson);
-	console.log("Form submitted with data : " + JSON.stringify(formJson));
-
-	xhrObj("rest/mediaInfo", {
-		handleAs : "json",
-		method : 'OPTIONS',
-		data : JSON.stringify(formJson),
-		headers : {
-			'Content-Type' : 'application/json'
-		}
-	}).then(
-			function(data) {
-				responseJson = data;
-				console.log("The file's content of searchMediaNew() is: "
-						+ JSON.stringify(data));
-				paintSearchResult();
-				createPagination();
-			},
-			function(err) {
-				console.log("The file's err of searchMediaNew() is: "
-						+ JSON.stringify(err));
-			},
-			function(evt) {
-				console.log("The file's evt of searchMediaNew() is: "
-						+ JSON.stringify(evt));
-			});
-
+		xhrObj("rest/mediaInfo", {
+			handleAs : "json",
+			method : 'OPTIONS',
+			data : JSON.stringify(formJson),
+			headers : {
+				'Content-Type' : 'application/json'
+			}
+		}).then(
+				function(data) {
+					responseJson = data;
+					console.log("The file's content of searchMediaNew() is: "
+							+ JSON.stringify(data));
+					paintSearchResult();
+					createPagination();
+				},
+				function(err) {
+					console.log("The file's err of searchMediaNew() is: "
+							+ JSON.stringify(err));
+				},
+				function(evt) {
+					console.log("The file's evt of searchMediaNew() is: "
+							+ JSON.stringify(evt));
+				});
+	}
 }
 
 function paintSearchResult() {
